@@ -19,7 +19,7 @@ forma de programar
 # CONTENIDOS DE LAS CARPETAS
 
 | Ciclo I       | Ciclo II        | Ciclo III       |
-| --------------| :--------------:|: --------------:|
+| --------------|-----------------|-----------------|
 | Fundamentos   | Desconocido     | Desconocido     |
 
 # CODIGOS SUELTOS
