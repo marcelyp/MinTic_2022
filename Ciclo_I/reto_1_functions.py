@@ -19,11 +19,11 @@ a dos decimales, en escala de 0 a 5 y eliminando del calculo la peor de las 5 no
 estudiante).
 
 #TEST
-    print(quizzes_grade("AA0010276", 19, 90, 38, 55, 68))
-    print(quizzes_grade("IS0020162", 37, 10, 50, 19, 79))
-    print(quizzes_grade("BIO220181", 45, 46, 33, 74, 22))
-    print(quizzes_grade("IQ1022018", 57, 100, 87, 93, 21))
-    print(quizzes_grade("MA0020152", 5, 14, 76, 91, 5))
+    print(nota_quices("AA0010276", 19, 90, 38, 55, 68))
+    print(nota_quices("IS0020162", 37, 10, 50, 19, 79))
+    print(nota_quices("BIO220181", 45, 46, 33, 74, 22))
+    print(nota_quices("IQ1022018", 57, 100, 87, 93, 21))
+    print(nota_quices("MA0020152", 5, 14, 76, 91, 5))
 
 #OUTPUT
     El promedio ajsutado del estudiante AA0010276 es: 3.14
@@ -34,33 +34,33 @@ estudiante).
 """
 
 
-def grade_adjust(current_grade):
-    return current_grade * 0.05
+def ajustar_notas(nota_actual):
+    return nota_actual * 0.05
 
 
-def worst_grade_calc(quiz_1, quiz_2, quiz_3, quiz_4, quiz_5):
-    worst_grade = min(quiz_1, quiz_2, quiz_3, quiz_4, quiz_5)
-    return quiz_1 + quiz_2 + quiz_3 + quiz_4 + quiz_5 - worst_grade
+def peor_nota_y_promedio(quiz_1, quiz_2, quiz_3, quiz_4, quiz_5):
+    peor_nota = min(quiz_1, quiz_2, quiz_3, quiz_4, quiz_5)
+    return quiz_1 + quiz_2 + quiz_3 + quiz_4 + quiz_5 - peor_nota
 
 
-def final_grade_calc(grades):
+def calculo_de_nota_final(grades):
     return grades / 4
 
 
-def quizzes_grade(code, grade_1, grade_2, grade_3, grade_4, grade_5):
-    grade_1 = grade_adjust(grade_1)
-    grade_2 = grade_adjust(grade_2)
-    grade_3 = grade_adjust(grade_3)
-    grade_4 = grade_adjust(grade_4)
-    grade_5 = grade_adjust(grade_5)
+def nota_quices(code, grade_1, grade_2, grade_3, grade_4, grade_5):
+    grade_1 = ajustar_notas(grade_1)
+    grade_2 = ajustar_notas(grade_2)
+    grade_3 = ajustar_notas(grade_3)
+    grade_4 = ajustar_notas(grade_4)
+    grade_5 = ajustar_notas(grade_5)
 
-    final_grade = final_grade_calc(worst_grade_calc(grade_1, grade_2, grade_3, grade_4, grade_5))
+    nota_final = calculo_de_nota_final(peor_nota_y_promedio(grade_1, grade_2, grade_3, grade_4, grade_5))
 
-    return "El promedio ajustado del estudiante " + code + " es: " + str(round(final_grade, 2))
+    return "El promedio ajustado del estudiante " + code + " es: " + str(round(nota_final, 2))
 
 
-print(quizzes_grade("AA0010276", 19, 90, 38, 55, 68))
-print(quizzes_grade("IS0020162", 37, 10, 50, 19, 79))
-print(quizzes_grade("BIO220181", 45, 46, 33, 74, 22))
-print(quizzes_grade("IQ1022018", 57, 100, 87, 93, 21))
-print(quizzes_grade("MA0020152", 5, 14, 76, 91, 5))
+print(nota_quices("AA0010276", 19, 90, 38, 55, 68))
+print(nota_quices("IS0020162", 37, 10, 50, 19, 79))
+print(nota_quices("BIO220181", 45, 46, 33, 74, 22))
+print(nota_quices("IQ1022018", 57, 100, 87, 93, 21))
+print(nota_quices("MA0020152", 5, 14, 76, 91, 5))

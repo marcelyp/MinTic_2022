@@ -1,6 +1,6 @@
 """
 I remembered a couple of exercises that I made in C++ second semester,
-so I decided to improved it here in python, could made de same in C++
+so I decided to improved it here in python, could made the same in C++
 again... No sure; so I'm making palindrome detection function
 """
 
@@ -44,5 +44,4 @@ if __name__ == "__main__":
     check_palindrome(palindrome_example_3)
     check_palindrome(palindrome_example_4)
     check_palindrome(palindrome_example_5)
-
 
