@@ -37,55 +37,71 @@ Validación.
 Para  este  reto,  usted  debe verificar  que todas  las  distancias del  diccionario  que  entra  por  parámetro  sean
 positivas  ó  cero  en  el  caso  de las  distancias  entre  dos  lugares  iguales.  En  cualquier  otro  caso retorne
 una cadena reportando el siguiente mensaje de error “Por favor revisarlos datos de entrada".
+
+Output:
+
+Var 1:
+{'ruta': 'H-A-F-B-D-C-E-H', 'distancia': 458}
+Var 2:
+{'ruta': 'H-D-A-B-C-E-H', 'distancia': 393}
 """
 
 
-def validacion(datos: dict):
+def validar_matriz(datos: dict) -> bool:
     for punto_inicial, punto_objetivo in datos:
-        if datos[(punto_inicial, punto_objetivo)] < 0 or not isinstance(datos[(punto_inicial, punto_objetivo)], int):
+        if not isinstance(datos[(punto_inicial, punto_objetivo)], int):
+            return False
+        if datos[(punto_inicial, punto_objetivo)] < 0:
+            return False
+        if punto_inicial == punto_objetivo and datos[(punto_inicial, punto_objetivo)] != 0:
             return False
     return True
 
 
+def calcular_costo_por_ruta(pesos: dict, ruta: list) -> int:
+    costo_de_la_ruta = 0
+    for item in range(0, len(ruta) - 1):
+        costo_de_la_ruta += pesos[(ruta[item], ruta[item + 1])]
+    return costo_de_la_ruta
+
+
 def ruteo(distancias: dict, ruta_inicial: list) -> dict:
     mejor_ruta = {'ruta': '', 'distancia': 0}
-    mejor_ruta['ruta'] += ruta_inicial[0] + "-"
-    nueva_ruta = ruta_inicial.copy()
-    visitados = []
+    ruta_generada = ruta_inicial.copy()
 
-    if not validacion(distancias):
+    if not validar_matriz(distancias):
         return "Por favor revisarlos datos de entrada"
 
-    for item in nueva_ruta:
-        visitados.append(item)
-        mejor_nodo = item
-        mejor_ditancia_actual = float("inf")
+    menor_costo_conocido = calcular_costo_por_ruta(distancias, ruta_inicial)
 
-        for punto_inicial, punto_objetivo in distancias:
-            if punto_inicial == item and punto_inicial != punto_objetivo:
-                if mejor_ditancia_actual > distancias[(punto_inicial, punto_objetivo)]:
-                    mejor_ditancia_actual = distancias[(punto_inicial, punto_objetivo)]
-                    mejor_nodo = punto_objetivo
+    for posicion_actual in range(1, len(ruta_inicial) - 2):
+        for siguiente_posicion in ruta_inicial[posicion_actual + 1: -1]:
 
-                print(punto_inicial + " " + punto_objetivo + " " + str(mejor_ditancia_actual))
-                # nueva_ruta[nueva_ruta.index(item)] = mejor_nodo
+            ruta_generada[ruta_generada.index(siguiente_posicion)], ruta_generada[posicion_actual] = ruta_generada[posicion_actual], siguiente_posicion
 
-        mejor_ruta['distancia'] += mejor_ditancia_actual
-        mejor_ruta['ruta'] += mejor_nodo
-        mejor_ruta['ruta'] += "-"
-
-    mejor_ruta['ruta'] = mejor_ruta['ruta'][:-1]
+            if menor_costo_conocido > calcular_costo_por_ruta(distancias, ruta_generada):
+                mejor_ruta['ruta'] = "-".join(ruta_generada)
+                mejor_ruta['distancia'] = calcular_costo_por_ruta(distancias, ruta_generada)
 
     return mejor_ruta
 
 
 var = {('H', 'H'): 0, ('H', 'A'): 21, ('H', 'B'): 57, ('H', 'C'): 58, ('H', 'D'): 195, ('H', 'E'): 245, ('H', 'F'): 241,
        ('A', 'H'): 127, ('A', 'A'): 0, ('A', 'B'): 231, ('A', 'C'): 113, ('A', 'D'): 254, ('A', 'E'): 179,
-       ('A', 'F'): 41, ('B', 'H'): 153, ('B', 'A'): 252, ('B', 'B'): 0, ('B', 'C'): 56, ('B', 'D'): 126,
+       ('A', 'F'): 41,('B', 'H'): 153, ('B', 'A'): 252, ('B', 'B'): 0, ('B', 'C'): 56, ('B', 'D'): 126,
        ('B', 'E'): 160, ('B', 'F'): 269, ('C', 'H'): 196, ('C', 'A'): 128, ('C', 'B'): 80, ('C', 'C'): 0,
        ('C', 'D'): 136, ('C', 'E'): 37, ('C', 'F'): 180, ('D', 'H'): 30, ('D', 'A'): 40, ('D', 'B'): 256,
        ('D', 'C'): 121, ('D', 'D'): 0, ('D', 'E'): 194, ('D', 'F'): 109, ('E', 'H'): 33, ('E', 'A'): 144,
        ('E', 'B'): 179, ('E', 'C'): 114, ('E', 'D'): 237, ('E', 'E'): 0, ('E', 'F'): 119, ('F', 'H'): 267,
        ('F', 'A'): 61, ('F', 'B'): 79, ('F', 'C'): 39, ('F', 'D'): 135, ('F', 'E'): 55, ('F', 'F'): 0}
 
-print(ruteo(var, ruta_inicial=['H', 'A', 'B', 'C', 'D', 'E', 'F', 'H']))
+var2 = {('H', 'H'): 0, ('H', 'A'): 60, ('H', 'B'): 202, ('H', 'C'): 206, ('H', 'D'): 40, ('H', 'E'): 27,
+        ('A', 'H'): 72, ('A', 'A'): 0, ('A', 'B'): 135, ('A', 'C'): 150, ('A', 'D'): 240, ('A', 'E'): 117,
+        ('B', 'H'): 188, ('B', 'A'): 166, ('B', 'B'): 0, ('B', 'C'): 149, ('B', 'D'): 126, ('B', 'E'): 199,
+        ('C', 'H'): 39, ('C', 'A'): 19, ('C', 'B'): 123, ('C', 'C'): 0, ('C', 'D'): 206, ('C', 'E'): 19,
+        ('D', 'H'): 45, ('D', 'A'): 14, ('D', 'B'): 110, ('D', 'C'): 95, ('D', 'D'): 0, ('D', 'E'): 31,
+        ('E', 'H'): 36, ('E', 'A'): 179, ('E', 'B'): 235, ('E', 'C'): 106, ('E', 'D'): 25, ('E', 'E'): 0}
+
+print(ruteo(var, ['H', 'A', 'B', 'C', 'D', 'E', 'F', 'H']))
+
+print(ruteo(var2, ['H', 'B', 'E', 'A', 'C', 'D', 'H']))
