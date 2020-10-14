@@ -49,11 +49,6 @@ str                 Texto con la siguiente estructura: "La reacción {código} d
 """
 
 
-def reaction_init(code: str, end_hour: int, end_minute: int,
-                  necessary_hours: int, necessary_minutes: int, necessary_seconds) -> str:
-    pass
-
-
 def inicio_reaccion(codigo: str, hora_terminacion: int, minuto_terminacion: int,
                     duracion_horas: int, duracion_minutos: int, duracion_segundos: int) -> str:
     seg_reaccion = duracion_horas * 60 * 60 + duracion_minutos * 60 + duracion_segundos
@@ -63,7 +58,8 @@ def inicio_reaccion(codigo: str, hora_terminacion: int, minuto_terminacion: int,
     minuto_inicio = (seg_inicio - hora_inicio * 3600) // 60
     seg_iniciar = seg_inicio - hora_inicio * 3600 - minuto_inicio * 60
 
-    return "La reacción {0} debe iniciarse a las {1} horas, {2} minutos con {3} segundos para que esté lista en en el momento requerido".format(codigo, hora_inicio, minuto_inicio, seg_iniciar)
+    return "La reacción {0} debe iniciarse a las {1} horas, {2} minutos con {3} segundos para que esté lista en en el " \
+           "momento requerido".format(codigo, hora_inicio, minuto_inicio, seg_iniciar)
 
 
 print(inicio_reaccion("HHAA01", 16, 30, 4, 11, 23))
