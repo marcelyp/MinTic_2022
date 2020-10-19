@@ -18,9 +18,16 @@ forma de programar
 
 # CONTENIDOS DE LAS CARPETAS
 
-| Ciclo I       | Ciclo II        | Ciclo III       |
-| --------------|-----------------|-----------------|
-| Fundamentos   | Desconocido     | Desconocido     |
+| Ciclo I         | Ciclo II        | Ciclo III       | Ciclo IV        | Ciclo V         |    
+| ----------------|-----------------|-----------------|-----------------|-----------------|    
+| ° Fundamentos   |                 |                 |                 |                 |    
+| ° Funciones     |                 |                 |                 |                 |    
+| ° Estructuras de|                 |                 |                 |                 |    
+| datos de python |   Desconocido   |   Desconocido   |   Desconocido   |   Desconocido   |    
+| ° Matrices      |                 |                 |                 |                 |    
+| ° Librerías     |                 |                 |                 |                 |    
+| ° Graficas con  |                 |                 |                 |                 |    
+| pandas y numpy  |                 |                 |                 |                 |    
 
 # CODIGOS SUELTOS
 

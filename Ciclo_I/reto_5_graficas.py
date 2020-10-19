@@ -18,12 +18,13 @@ import pandas as pd
 
 
 def caso_who(ruta_archivo_csv: str) -> dict:
-    print(ruta_archivo_csv[-4:len(ruta_archivo_csv)])
     if ruta_archivo_csv[-4:len(ruta_archivo_csv)] != ".csv":
         return "Extensión inválida."
     try:
         data = pd.read_csv(ruta_archivo_csv)
-        print(data.index("continent"))
+        print(data.columns)
+        print(data["continent"].unique())
+        print(data.groupby("continent").count())
         return data.to_dict()
     except:
         return "Error al leer el archivode datos."
