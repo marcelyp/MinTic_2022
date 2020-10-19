@@ -22,12 +22,10 @@ forma de programar
 | ----------------|-----------------|-----------------|-----------------|-----------------|    
 | ° Fundamentos   |                 |                 |                 |                 |    
 | ° Funciones     |                 |                 |                 |                 |    
-| ° Estructuras de|                 |                 |                 |                 |    
-| datos de python |   Desconocido   |   Desconocido   |   Desconocido   |   Desconocido   |    
+| ° Estructuras   |   Desconocido   |   Desconocido   |   Desconocido   |   Desconocido   |    
 | ° Matrices      |                 |                 |                 |                 |    
 | ° Librerías     |                 |                 |                 |                 |    
-| ° Graficas con  |                 |                 |                 |                 |    
-| pandas y numpy  |                 |                 |                 |                 |    
+| ° Graficas      |                 |                 |                 |                 | 
 
 # CODIGOS SUELTOS
 
