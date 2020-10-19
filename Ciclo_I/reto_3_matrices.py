@@ -46,7 +46,7 @@ Var 2:
 {'ruta': 'H-D-A-B-C-E-H', 'distancia': 393}
 """
 
-import constantes as cts
+from Constantes import constantes_ciclo_1 as cts
 
 
 def validar_matriz(datos: dict) -> bool:

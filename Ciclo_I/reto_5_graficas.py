@@ -13,7 +13,6 @@ dataframe sobre el cual, al utilizar el método df.plot() se obtenga la
 gráfica esperada
 """
 
-import numpy as np
 import pandas as pd
 
 
@@ -29,4 +28,5 @@ def caso_who(ruta_archivo_csv: str) -> dict:
     except:
         return "Error al leer el archivode datos."
 
-caso_who("owid-covid-data.csv")
+
+caso_who("../Constantes/owid-covid-data.csv")

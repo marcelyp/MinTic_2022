@@ -34,33 +34,33 @@ estudiante).
 """
 
 
-def adjust_grades(nota_actual):
+def ajustar_nota(nota_actual):
     return nota_actual * 0.05
 
 
-def worst_grade(quiz_1, quiz_2, quiz_3, quiz_4, quiz_5):
-    worst = min(quiz_1, quiz_2, quiz_3, quiz_4, quiz_5)
-    return quiz_1 + quiz_2 + quiz_3 + quiz_4 + quiz_5 - worst
+def peor_nota(quiz_1, quiz_2, quiz_3, quiz_4, quiz_5):
+    peor = min(quiz_1, quiz_2, quiz_3, quiz_4, quiz_5)
+    return quiz_1 + quiz_2 + quiz_3 + quiz_4 + quiz_5 - peor
 
 
-def final_grade_calc(grades):
-    return grades / 4
+def calculo_de_la_nota_final(notas):
+    return notas / 4
 
 
-def quiz_grades(code, grade_1, grade_2, grade_3, grade_4, grade_5):
-    grade_1 = adjust_grades(grade_1)
-    grade_2 = adjust_grades(grade_2)
-    grade_3 = adjust_grades(grade_3)
-    grade_4 = adjust_grades(grade_4)
-    grade_5 = adjust_grades(grade_5)
+def nota_de_quizes(codigo, nota_1, nota_2, nota_3, nota_4, nota_5):
+    nota_1 = ajustar_nota(nota_1)
+    nota_2 = ajustar_nota(nota_2)
+    nota_3 = ajustar_nota(nota_3)
+    nota_4 = ajustar_nota(nota_4)
+    nota_5 = ajustar_nota(nota_5)
 
-    nota_final = final_grade_calc(worst_grade(grade_1, grade_2, grade_3, grade_4, grade_5))
+    nota_final = calculo_de_la_nota_final(peor_nota(nota_1, nota_2, nota_3, nota_4, nota_5))
 
-    return "El promedio ajustado del estudiante " + code + " es: " + str(round(nota_final, 2))
+    return "El promedio ajustado del estudiante " + codigo + " es: " + str(round(nota_final, 2))
 
 
-print(quiz_grades("AA0010276", 19, 90, 38, 55, 68))
-print(quiz_grades("IS0020162", 37, 10, 50, 19, 79))
-print(quiz_grades("BIO220181", 45, 46, 33, 74, 22))
-print(quiz_grades("IQ1022018", 57, 100, 87, 93, 21))
-print(quiz_grades("MA0020152", 5, 14, 76, 91, 5))
+print(nota_de_quizes("AA0010276", 19, 90, 38, 55, 68))
+print(nota_de_quizes("IS0020162", 37, 10, 50, 19, 79))
+print(nota_de_quizes("BIO220181", 45, 46, 33, 74, 22))
+print(nota_de_quizes("IQ1022018", 57, 100, 87, 93, 21))
+print(nota_de_quizes("MA0020152", 5, 14, 76, 91, 5))

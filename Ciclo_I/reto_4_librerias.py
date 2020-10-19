@@ -41,7 +41,7 @@ Validaciones:
 Utilice un bloque try-exceptpara el cálculo del promedio. En caso de error, retorne “Error numérico.”
 """
 
-import constantes as cts
+from Constantes import constantes_ciclo_1 as cts
 
 
 def ajuste_de_texto(text: str) -> str:

@@ -2,6 +2,20 @@
 Constantes de los retos del ciclo I
 """
 
+reto_2_test_1 = {
+    "id_prestamo": "RETOS2_001",
+    "casado": "si",
+    "dependientes": "3+",
+    "educacion": "GRADUADO",
+    "independiente": "no",
+    "ingreso_deudor": 4692,
+    "ingreso_codeudor": 0,
+    "cantidad_prestamo": 106,
+    "plazo_prestamo": 360,
+    "historia_credito": 1,
+    "tipo_propiedad": "semiurbano"
+}
+
 reto_3_test_1 = {('H', 'H'): 0, ('H', 'A'): 21, ('H', 'B'): 57, ('H', 'C'): 58, ('H', 'D'): 195, ('H', 'E'): 245,
                  ('H', 'F'): 241, ('A', 'H'): 127, ('A', 'A'): 0, ('A', 'B'): 231, ('A', 'C'): 113, ('A', 'D'): 254,
                  ('A', 'E'): 179, ('A', 'F'): 41, ('B', 'H'): 153, ('B', 'A'): 252, ('B', 'B'): 0, ('B', 'C'): 56,

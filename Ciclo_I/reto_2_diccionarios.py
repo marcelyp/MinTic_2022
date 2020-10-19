@@ -23,11 +23,14 @@ representando la salida del árbol de decisión. Es decir, informando si el pré
 """
 
 
-def dicts_creator(template: dict) -> dict:
-    new_dict = template.copy()
+from Constantes import constantes_ciclo_1 as cts
+
+
+def crear_diccionario(template: dict) -> dict:
+    nuevo_diccionarios = template.copy()
     for iterator in template.keys():
-        new_dict.update({iterator: input("Add data to " + iterator + ": ")})
-    return new_dict
+        nuevo_diccionarios.update({iterator: input("Add data to " + iterator + ": ")})
+    return nuevo_diccionarios
 
 
 def prestamo(informacion: dict) -> dict:
@@ -60,8 +63,7 @@ def prestamo(informacion: dict) -> dict:
     else:
         if informacion["independiente"].upper() == "SI":
             if informacion["casado"] == "NO" and int(dependientes) <= 1:
-                if informacion["ingreso_deudor"] / 10 > informacion["cantidad_prestamo"] or informacion[
-                    "ingreso_codeudor"] / 10 > informacion["cantidad_prestamo"]:
+                if informacion["ingreso_deudor"] / 10 > informacion["cantidad_prestamo"] or informacion["ingreso_codeudor"] / 10 > informacion["cantidad_prestamo"]:
                     if informacion["cantidad_prestamo"] < 180:
                         prestamos_por_id.update({"aprobado": True})
                     else:
@@ -73,8 +75,7 @@ def prestamo(informacion: dict) -> dict:
         else:
             if not (informacion["tipo_propiedad"].upper() == "SEMIURBANO") and int(dependientes) < 2:
                 if informacion["educacion"].upper() == "GRADUADO":
-                    if informacion["ingreso_deudor"] / 11 > informacion["cantidad_prestamo"] and informacion[
-                        "ingreso_codeudor"] / 11 > informacion["cantidad_prestamo"]:
+                    if informacion["ingreso_deudor"] / 11 > informacion["cantidad_prestamo"] and informacion["ingreso_codeudor"] / 11 > informacion["cantidad_prestamo"]:
                         prestamos_por_id.update({"aprobado": True})
                     else:
                         prestamos_por_id.update({"aprobado": False})
@@ -87,18 +88,4 @@ def prestamo(informacion: dict) -> dict:
 
 # TEST
 
-base = {
-    "id_prestamo": "RETOS2_001",
-    "casado": "si",
-    "dependientes": "3+",
-    "educacion": "GRADUADO",
-    "independiente": "no",
-    "ingreso_deudor": 4692,
-    "ingreso_codeudor": 0,
-    "cantidad_prestamo": 106,
-    "plazo_prestamo": 360,
-    "historia_credito": 1,
-    "tipo_propiedad": "semiurbano"
-}
-
-print(prestamo(base))
+print(prestamo(cts.reto_2_test_1))

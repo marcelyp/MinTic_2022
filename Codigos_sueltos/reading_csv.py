@@ -1,6 +1,6 @@
 import pandas as pd
 
-data = pd.read_csv(r"data.csv")
+data = pd.read_csv(r"../Constantes/data.csv")
 print(data.columns)
 pd.set_option("display.max.columns", None)
 # print(data.head())
