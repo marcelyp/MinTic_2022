@@ -67,76 +67,57 @@ def generar_correo(nombre: str, apellido: str, identificacion: str) -> str:
     return correo + identificacion[-2:len(identificacion)]
 
 
-def promedio_de_notas_del_estudiante(informacion_sobre_las_notas: list, contar_extrenos: bool) -> dict:
-    nombres_de_las_facultades = set()
-    suma_de_repeticiones = []
+def promedio_de_notas_del_estudiante(notas: list) -> dict:
+    notas.sort()
     promedios = {}
+    for item in notas:
+        promedios.update({item[0]: 0})
 
-    for item in informacion_sobre_las_notas:
-        for datos_del_estudiantes in item[1]:
-            nombres_de_las_facultades.add(datos_del_estudiantes["facultad"])
+    for item in promedios:
+        divisor = 0
+        for iterator in notas:
+            if iterator[0] == item:
+                promedios[item] += iterator[1] * iterator[2]
+                divisor += iterator[2]
+        promedios[item] /= divisor
 
-    nombres_de_las_facultades = list(nombres_de_las_facultades)
-    nombres_de_las_facultades.sort()
-
-    for item in nombres_de_las_facultades:
-        promedios.update({item: 0, "valores_de_" + item: 0})
-
-    print(promedios)
-
-    for item in range(0, len(promedios.items())):
-        suma_de_repeticiones.append(0)
-
-    for item in informacion_sobre_las_notas:
-        for datos_del_estudiantes in item[1]:
-            if not contar_extrenos and item[0] == datos_del_estudiantes["codigo"][0:datos_del_estudiantes["codigo"].index("-")] and datos_del_estudiantes["retirada"] == "No":
-                try:
-                    promedios[datos_del_estudiantes["facultad"]] += datos_del_estudiantes["nota"] * \
-                                                                    datos_del_estudiantes['creditos']
-                    suma_de_repeticiones = datos_del_estudiantes['creditos']
-                except:
-                    return "Error numérico."
-            elif contar_extrenos and datos_del_estudiantes["retirada"] == "No":
-                # print(item[0], datos_del_estudiantes)
-                try:
-                    promedios[datos_del_estudiantes["facultad"]] += datos_del_estudiantes["nota"] * datos_del_estudiantes['creditos']
-                except:
-                    return "Error numérico."
+    for item in promedios:
+        promedios[item] = round(promedios[item], 2)
 
     return promedios
 
 
 def promedio_facultades(info: dict, contando_externos: bool = True) -> tuple:
-    correos = []
-    datos_de_la_persona = []
-    datos_para_calculos = []
-    promedio_de_los_estudiantes = []
+    try:
+        correos = []
+        promedio_de_los_estudiantes = []
 
-    for llaves in info.keys():
-        for datos in info[llaves]:
+        for llaves in info.keys():
+            usado = False
+            nombres = info[llaves]["nombres"]
+            apellidos = info[llaves]["apellidos"]
+            documentos = info[llaves]["documento"]
+            programa = info[llaves]["programa"]
+            materias = info[llaves]["materias"]
 
-            if contando_externos:
-                if datos == "nombres" or datos == "apellidos" or datos == "documento":
-                    datos_de_la_persona.append(info[llaves][datos])
+            for item in materias:
+                if item["retirada"] == "No" and item["creditos"] > 0:
+                    if contando_externos:
+                        usado = True
+                        promedio_de_los_estudiantes.append([item["facultad"], item["nota"], item["creditos"]])
+                    elif not contando_externos and programa == item["codigo"][0:item["codigo"].index("-")]:
+                        usado = True
+                        promedio_de_los_estudiantes.append([item["facultad"], item["nota"], item["creditos"]])
 
-                if datos == "programa" or datos == "materias":
-                    datos_para_calculos.append(info[llaves][datos])
-            elif str(llaves)[4:6] != "05":
-                if datos == "nombres" or datos == "apellidos" or datos == "documento":
-                    datos_de_la_persona.append(info[llaves][datos])
+            if usado:
+                correos.append(generar_correo(nombres, apellidos, str(documentos)))
 
-                if datos == "programa" or datos == "materias":
-                    datos_para_calculos.append(info[llaves][datos])
+        correos.sort()
+        promedio_de_los_estudiantes = promedio_de_notas_del_estudiante(promedio_de_los_estudiantes)
 
-        correos.append(generar_correo(datos_de_la_persona[0], datos_de_la_persona[1], str(datos_de_la_persona[2])))
-        promedio_de_los_estudiantes.append(datos_para_calculos)
-        datos_de_la_persona = []
-        datos_para_calculos = []
-
-    correos.sort()
-    promedio_de_los_estudiantes = promedio_de_notas_del_estudiante(promedio_de_los_estudiantes, contando_externos)
-
-    return tuple([promedio_de_los_estudiantes, correos])
+        return tuple([promedio_de_los_estudiantes, correos])
+    except:
+        return "Error numérico."
 
 
 """
@@ -152,8 +133,7 @@ EL PROMEDIO DE LA FACULTAD:
 """
 
 # Prueba 1:
-print(promedio_facultades(cts.reto_4_test_1, True))
-print(promedio_facultades(cts.reto_4_test_1, False))
+print(promedio_facultades(cts.reto_4_test_1))
 # Expected return:
 
 """
