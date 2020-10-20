@@ -20,10 +20,14 @@ def caso_who(ruta_archivo_csv: str) -> dict:
     if ruta_archivo_csv[-4:len(ruta_archivo_csv)] != ".csv":
         return "Extensión inválida."
     try:
-        data = pd.read_csv(ruta_archivo_csv)
-        print(data.columns)
-        print(data["continent"].unique())
-        print(data.groupby("continent").count())
+        data = pd.read_csv(ruta_archivo_csv,
+                           na_values=["?"],
+                           index_col="date",
+                           columns=['first_name', 'last_name', 'age', 'amount_1', 'amount_2'])
+        data = pd.DataFrame(data)
+        data.index.name = "date"
+        data.columns.name = "continent"
+        print(data)
         return data.to_dict()
     except:
         return "Error al leer el archivode datos."
