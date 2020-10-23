@@ -51,13 +51,14 @@ def caso_who(ruta_archivo_csv: str) -> dict:
         covid_data["beds"] = (covid_data["hospital_beds_per_thousand"] * covid_data["population"]) / 1_000
         available = pd.Series(covid_data["total_cases"] / covid_data["beds"])
 
-        df_sum = pd.DataFrame({"date": pd.to_datetime(covid_data["date"]), "continent": covid_data["continent"],
-                               "available": available})
-        df_sum = df_sum.groupby(by=["date", "continent"])["available"].mean().reset_index()
-        df_sum = df_sum.pivot(index="date", columns="continent", values="available")
-        return df_sum.to_dict()
+        df_answer = pd.DataFrame({"date": pd.to_datetime(pd.Series(covid_data["date"])),
+                                  "continent": covid_data["continent"],
+                                  "available": available})
+        df_answer = df_answer.groupby(by=["date", "continent"])["available"].mean().reset_index()
+        df_answer = df_answer.pivot(index="date", columns="continent", values="available")
+        return df_answer.to_dict()
     except:
-        return "Error al leer el archivode datos."
+        return "Error al leer el archivo de datos."
 
 
 print(caso_who("owid-covid-data.csv"))
