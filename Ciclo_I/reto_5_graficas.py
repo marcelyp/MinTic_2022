@@ -32,13 +32,6 @@ Tenga en cuenta las siguientes consideraciones:
 
 import pandas as pd
 
-"""
-data[total_cases_per_million] * 10**3 / data[hospital_beds_per_thousand] * 10**6
-casos totales = (total_cases_per_million * population ) / 1000000
-total camas = ( hospital_beds_per_thousand * population) /1000
-razon = casostotales / total camas
-"""
-
 
 def caso_who(ruta_archivo_csv: str) -> dict:
     if ruta_archivo_csv[-4:len(ruta_archivo_csv)] != ".csv":
