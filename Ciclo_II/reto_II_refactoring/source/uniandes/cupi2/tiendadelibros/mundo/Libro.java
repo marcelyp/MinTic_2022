@@ -68,8 +68,7 @@ public class Libro
      * @param pPrecioCompra precioVenta del libro. pPrecioCompra > 0.
      * @param pRutaImagen Ruta de la imagen del libro. pRutaImagen != null && pRutaImagen != "".
      */
-    public Libro( String pTitulo, String pIsbn, double pPrecioVenta, double pPrecioCompra, String pRutaImagen )
-    {
+    public Libro( String pTitulo, String pIsbn, double pPrecioVenta, double pPrecioCompra, String pRutaImagen )    {
         titulo = pTitulo;
         isbn = pIsbn;
         precioVenta = pPrecioVenta;
@@ -87,8 +86,7 @@ public class Libro
      * Retorna el código IBSN del libro.
      * @return El código ISBN del libro.
      */
-    public String darIsbn( )
-    {
+    public String darIsbn( )    {
         return isbn;
     }
 
@@ -96,8 +94,7 @@ public class Libro
      * Retorna el título del libro.
      * @return El título del libro.
      */
-    public String darTitulo( )
-    {
+    public String darTitulo( )    {
         return titulo;
     }
 
@@ -105,8 +102,7 @@ public class Libro
      * Retorna el precio de venta del libro.
      * @return El precio de venta del libro.
      */
-    public double darPrecioVenta( )
-    {
+    public double darPrecioVenta( )    {
         return precioVenta;
     }
 
@@ -114,8 +110,7 @@ public class Libro
      * Retorna el precio de compra del libro.
      * @return El precio de compra del libro.
      */
-    public double darPrecioCompra( )
-    {
+    public double darPrecioCompra( )    {
         return precioCompra;
     }
 
@@ -123,8 +118,7 @@ public class Libro
      * Retorna la cantidad actual de ejemplares del libro.
      * @return La cantidad actual de ejemplares del libro.
      */
-    public int darCantidadActual( )
-    {
+    public int darCantidadActual( )    {
         return cantidadActual;
     }
 
@@ -132,9 +126,24 @@ public class Libro
      * Retorna la ruta de la imagen del libro.
      * @return La ruta de la imagen del libro.
      */
-    public String darRutaImagen( )
-    {
+    public String darRutaImagen( )    {
         return rutaImagen;
+    }
+    
+    /**
+     * Retorna la colección de transacciones.
+     * @return La colección de transacciones.
+     */
+    public ArrayList<Transaccion> darTransacciones( )    {
+        return transacciones;
+    }
+    
+    /**
+     * Cambia el precio actual del libro.
+     * @return La ruta de la imagen del libro.
+     */
+    public void obtenerPrecioVenta( double precio )    {
+    	this.precioVenta = precio;
     }
 
     /**
@@ -143,8 +152,7 @@ public class Libro
      * @param pFecha La fecha en la que se realizó la transacción. pFecha != "" && pFecha != null.
      * @return Retorna true en caso de que se pueda vender la cantidad que entra por parámetro. Retorna false en caso de que la cantidad sea mayor a la actual.
      */
-    public boolean vender( int pCantidad, String pFecha )
-    {
+    public boolean vender( int pCantidad, String pFecha )    {
         boolean vendido = false;
         // Verifica que la cantidad que entra por parámetro sea menor o igual a la cantidad igual
         if( pCantidad <= cantidadActual )
@@ -167,8 +175,7 @@ public class Libro
      * @param pCantidad La cantidad de ejemplares que se van a agregar a la cantidad actual.
      * @param pFecha La fecha en la que se realizó la transacción. pFecha != "" && pFecha != null.
      */
-    public void abastecer( int pCantidad, String pFecha )
-    {
+    public void abastecer( int pCantidad, String pFecha )    {
         // Aumenta la cantidad actual de ejemplares
         cantidadActual += pCantidad;
         // Crea el codigo de la transaccion
@@ -180,20 +187,10 @@ public class Libro
     }
 
     /**
-     * Retorna la colección de transacciones.
-     * @return La colección de transacciones.
-     */
-    public ArrayList<Transaccion> darTransacciones( )
-    {
-        return transacciones;
-    }
-
-    /**
      * Retorna la representación en cadena de caracteres un objeto Libro.
      * @return La representación en cadena de caracteres del objeto Libro.
      */
-    public String toString( )
-    {
+    public String toString( )    {
         String representacion = titulo + " (" + isbn + ")";
         return representacion;
     }

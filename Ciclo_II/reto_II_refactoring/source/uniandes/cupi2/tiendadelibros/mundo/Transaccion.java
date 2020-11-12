@@ -67,8 +67,7 @@ public class Transaccion
      * @param pCantidad Cantidad de ejemplares utilizados en la transacción. pCantidad > 0.
      * @param pFecha Fecha en que se realizó la transacción. pFecha != null && pFecha != "".
      */
-    public Transaccion( Tipo pTipo, int pCantidad, String pFecha, String pIdTransaccion )
-    {
+    public Transaccion( Tipo pTipo, int pCantidad, String pFecha, String pIdTransaccion )    {
     	tipo = pTipo;
         cantidad = pCantidad;
         fecha = pFecha;
@@ -83,8 +82,7 @@ public class Transaccion
      * Retorna el tipo de la transacción.
      * @return El tipo de la transacción.
      */
-    public Tipo darTipo( )
-    {
+    public Tipo darTipo( )    {
         return tipo;
     }
 
@@ -92,8 +90,7 @@ public class Transaccion
      * Retorna la cantidad de ejemplares utilizados en la transacción.
      * @return La cantidad de ejemplares utilizados en la transacción.
      */
-    public int darCantidad( )
-    {
+    public int darCantidad( )    {
         return cantidad;
     }
 
@@ -101,13 +98,11 @@ public class Transaccion
      * Retorna la fecha de la transacción.
      * @return La fecha de la transacción.
      */
-    public String darFecha( )
-    {
+    public String darFecha( )    {
         return fecha;
     }
     
-    public String darIdTransaccion()
-    {
+    public String darIdTransaccion()    {
     	return idTransaccion;
     }
 
@@ -115,8 +110,7 @@ public class Transaccion
      * Retorna la representación en cadena de caracteres un objeto Transaccion.
      * @return La representación en cadena de caracteres del objeto Transaccion.
      */
-    public String toString( )
-    {
+    public String toString( )    {
         String representacion = fecha + " - " + tipo + ": " + cantidad;
         return representacion;
     }
