@@ -34,7 +34,7 @@ print(var_2 %% var_2)
 # ARRAY
 
 vector <- c(1, 2, 3, 4)
-print(vector)
+# print(vector)
 
 # Names() nos permite dar nombre a
 # datos de vector
@@ -52,8 +52,8 @@ print(vector)
 
 # Acá los array no empiezan en 0 sino en 1
 
-print(vector[1])
-print(vector[4])
+# print(vector[1])
+# print(vector[4])
 
 # Asignación de label a vectores
 
@@ -65,28 +65,28 @@ names(alturas) <- nombre
 names(edades) <- nombre
 
 
-print(alturas)
-print(edades)
+# print(alturas)
+# print(edades)
 
-print(alturas + edades)
-print(alturas - edades)
-print(alturas * edades)
-print(alturas / edades)
-print(alturas %% edades)
-print(alturas %*% edades)
+# print(alturas + edades)
+# print(alturas - edades)
+# print(alturas * edades)
+# print(alturas / edades)
+# print(alturas %% edades)
+# print(alturas %*% edades)
 
 # MATRICES
 
 informacion <- matrix(data = c(edades, alturas), nrow = length(edades), ncol = length(edades), byrow = T)
-print(informacion)
+# print(informacion)
 
 vector_1 <- rep(1, length(edades))
-print(vector_1)
+# print(vector_1)
 
 # DATAFRAMES
 
 df <- data.frame(alturas, edades, row.names = nombre, check.rows = c(T, T, T))
-print(df)
+# print(df)
 
 # Funciones de un df
 
@@ -94,8 +94,29 @@ head(df)
 tail(df)
 print(str(df))
 
-print(df$alturas[1])
-print(df[df$alturas == 1.73,])
+# print(df$alturas[1])
+# print(df[df$alturas == 1.73,])
 
 attach(df)
 detach(df)
+
+# listas
+
+# print(?list())
+
+planetas <- list("nombres" = c(" Mercurio", "venus", "tierra"), "tamaño" = "mediano")
+# print(planetas)
+
+iris$Species <- NULL
+attach(iris)
+# plot(iris)
+
+# Libraries
+install.packages(rgl)
+library(rgl)
+
+iris$Species <- NULL
+attach(iris)
+open3d()
+plot3d(iris)
+play3d(spin3d(axis = c(0, 0, 1)))
