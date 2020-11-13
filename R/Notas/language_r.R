@@ -112,11 +112,14 @@ attach(iris)
 # plot(iris)
 
 # Libraries
-install.packages(rgl)
-library(rgl)
+# install.packages(rgl)
+# library(rgl)
 
-iris$Species <- NULL
-attach(iris)
-open3d()
-plot3d(iris)
-play3d(spin3d(axis = c(0, 0, 1)))
+# iris$Species <- NULL
+# attach(iris)
+# open3d()
+# plot3d(iris)
+# play3d(spin3d(axis = c(0, 0, 1)))
+
+mean(iris)
+summary(iris)
