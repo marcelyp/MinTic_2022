@@ -5,6 +5,7 @@
 * INTRODUCCIÓN
 * CONTENIDOS DE LOS CICLOS
 * CODIGOS SUELTOS
+* CURSO DE R
 * CONSTANTES
 * CLASES
 
@@ -42,6 +43,11 @@ En esta carpeta _(Codigos_sueltos)_ solo tengo pequeños programas que se me ocu
 aburrido o quería aprender algo de python u otro lenguaje; la mayoría estan en inglés pues tiendo a programar todo así,
 me gusta más, pienso que puede llegar a más programadores, en todo caso; son pequeños ejemplos de algunas pequeñas
 implementaciones que se me ocurrían.
+
+## [CURSO DE R](R)
+
+En la carpeta de R esta el contenido introductorio de un curso que nos dio la plataforma de iMaster (Publicidad no pagada),
+que fue el constructo con la universidad que nos dió los primer 3 ciclos del curso
 
 ## [CONSTANTES](Constantes)
 
