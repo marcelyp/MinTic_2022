@@ -19,14 +19,14 @@ Java, SQL, etc.
 ## CONTENIDOS DE LAS CARPETAS
 
 
-| [Ciclo I](Ciclo_I)                                | Ciclo II        | Ciclo III       | 
-| --------------------------------------------------|-----------------|-----------------| 
-| ° [Fundamentos](Ciclo_I/reto_0.py)                |                 |                 | 
-| ° [Funciones](Ciclo_I/reto_1_funciones.py)        |                 |                 | 
-| ° [Estructuras](Ciclo_I/reto_2_diccionarios.py)   |   Desconocido   |   Desconocido   | 
-| ° [Matrices](Ciclo_I/reto_3_matrices.py)          |                 |                 | 
-| ° [Librerías](Ciclo_I/reto_4_librerias.py)        |                 |                 | 
-| ° [Graficas](Ciclo_I/reto_5_graficas.py)          |                 |                 |
+| [Ciclo I](Ciclo_I)                             | [Ciclo II](Ciclo_II)                         | Ciclo III       | 
+| -----------------------------------------------|----------------------------------------------|-----------------| 
+| ° [Funciones](Ciclo_I/reto_1_funciones.py)     | ° [Refactoring](Ciclo_II/reto_I_refactoring) |                 | 
+| ° [Estructuras](Ciclo_I/reto_2_diccionarios.py)| ° [Refactoring](Ciclo_II/reto_II_refactoring)|                 | 
+| ° [Matrices](Ciclo_I/reto_3_matrices.py)       | ° [SQL](Ciclo_II/reto_III_SQL)               |   Desconocido   | 
+| ° [Librerías](Ciclo_I/reto_4_librerias.py)     | ° [JUnitTest](Ciclo_II/reto_IV_JUnitTest)    |                 | 
+| ° [Graficas](Ciclo_I/reto_5_graficas.py)       | ° [Interfaces](Ciclo_II/reto_III_Interfaces) |                 | 
+| ° [Fundamentos](Ciclo_I/reto_0.py)             |
 
 | Ciclo IV        | Ciclo V         |
 |-----------------|-----------------|
@@ -36,6 +36,12 @@ Java, SQL, etc.
 |                 |                 |
 |                 |                 |
 |                 |                 |
+
+| Curso de R       |
+|------------------|
+|° Fundamentos de R|
+|° Graficas en R   |
+|                  |
 
 ## [CODIGOS SUELTOS](Codigos_sueltos)
 
