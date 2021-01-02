@@ -28,9 +28,9 @@ Java, SQL, etc.
 | ° [Graficas](Ciclo_I/reto_5_graficas.py)       | ° [Interfaces](Ciclo_II/reto_IV-V_test_classes) | 
 | ° [Fundamentos](Ciclo_I/reto_0.py)             |
 
-| [Ciclo III](Ciclo_III)              |
-|-------------------------------------|
-|[Proyecto MinTic](Ciclo_III/proyecto)|
+| [Ciclo III](Ciclo_III)                                                 |
+|------------------------------------------------------------------------|
+|[Proyecto MinTic](https://noventa-y-un-centimos.herokuapp.com/principal)|
 
 | Ciclo IV        | Ciclo V         |
 |-----------------|-----------------|
