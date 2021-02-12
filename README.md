@@ -28,7 +28,7 @@ Java, SQL, etc.
 | ° [Graficas](Ciclo_I/reto_5_graficas.py)       | ° [Interfaces](Ciclo_II/reto_IV-V_test_classes) | 
 | ° [Fundamentos](Ciclo_I/reto_0.py)             |
 
-| [Ciclo III](Ciclo_III)                                                 |
+| [Ciclo III](https://github.com/Grupo-91-MinTic)                        |
 |------------------------------------------------------------------------|
 |[Proyecto MinTic](https://noventa-y-un-centimos.herokuapp.com/principal)|
 
@@ -44,7 +44,7 @@ Java, SQL, etc.
 | Curso de R       |
 |------------------|
 |° Fundamentos de R|
-|° Graficas en R   |
+|° Graficas en R    |
 |                  |
 
 ## [CODIGOS SUELTOS](Codigos_sueltos)
